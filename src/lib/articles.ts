@@ -1,4 +1,5 @@
 import { prisma } from "./prisma";
+import { userSlug } from "./slug-user";
 
 export async function getFeaturedArticle() {
   return prisma.article.findFirst({
@@ -28,11 +29,11 @@ export async function getArticleBySlug(slug: string) {
 }
 
 export async function getRelatedArticles(articleId: string, categoryId: string | null, limit = 3) {
-  const where: any = {
-    status: "PUBLISHED",
+  const where = {
+    status: "PUBLISHED" as const,
     id: { not: articleId },
+    ...(categoryId ? { categoryId } : {}),
   };
-  if (categoryId) where.categoryId = categoryId;
 
   const related = await prisma.article.findMany({
     where,
@@ -83,7 +84,14 @@ export async function getAllProjects() {
 }
 
 export async function getAuthorBySlug(slug: string) {
-  return prisma.user.findUnique({ where: { slug } });
+  const direct = await prisma.user.findUnique({ where: { slug } });
+  if (direct) return direct;
+
+  const users = await prisma.user.findMany();
+  return (
+    users.find((user) => (user.slug || userSlug(user.name || "", user.email)) === slug) ??
+    null
+  );
 }
 
 export async function getArticlesByAuthor(authorId: string) {

@@ -28,8 +28,8 @@ export default async function SearchPage({
     : [];
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16">
-      <h1 className="text-4xl font-bold">Поиск</h1>
+    <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
+      <h1 className="text-3xl font-medium">Поиск</h1>
 
       <form className="mt-8 flex gap-2" action="/search">
         <input
@@ -42,7 +42,7 @@ export default async function SearchPage({
         />
         <button
           type="submit"
-          className="rounded-lg bg-gold px-6 py-3 text-sm font-medium text-ink hover:bg-gold-hover"
+          className="rounded-full bg-gold px-6 py-3 text-sm font-medium text-white hover:bg-gold-hover"
         >
           Найти
         </button>

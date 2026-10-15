@@ -40,7 +40,7 @@ export function CategoryForm({ action, initial, submitLabel = "Сохранит�
       <div className="flex gap-2 pt-4">
         <button
           type="submit"
-          className="rounded-lg bg-gold px-6 py-2.5 text-sm font-medium text-ink hover:bg-gold-hover"
+          className="rounded-lg bg-gold px-6 py-2.5 text-sm font-medium text-white hover:bg-gold-hover"
         >
           {submitLabel}
         </button>

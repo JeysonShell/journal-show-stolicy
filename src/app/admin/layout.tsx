@@ -23,21 +23,21 @@ export default async function AdminLayout({
   ];
 
   return (
-    <div className="mx-auto flex max-w-7xl gap-8 px-6 py-10">
-      <aside className="w-56 shrink-0">
+    <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-6 md:flex-row md:gap-8 md:px-6 md:py-10">
+      <aside className="w-full shrink-0 md:w-56">
         <div className="mb-8">
-          <Link href="/" className="text-lg font-bold font-display">
+          <Link href="/" className="text-lg font-medium">
             Журнал <span className="text-gold">Столицы</span>
           </Link>
           <div className="mt-1 text-xs text-muted-foreground">Админка</div>
         </div>
 
-        <nav className="space-y-1">
+        <nav className="flex flex-wrap gap-1 md:block md:space-y-1">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="inline-block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:block"
             >
               {item.label}
             </Link>

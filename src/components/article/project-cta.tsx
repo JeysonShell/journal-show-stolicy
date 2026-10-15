@@ -20,20 +20,18 @@ export function ProjectCta({ project, articleSlug, variant = "default" }: Props)
 
   if (variant === "ticket") {
     return (
-      <aside className="my-16 overflow-hidden rounded-2xl border border-gold/30 bg-gradient-to-br from-card via-card to-gold/[0.05]">
-        <div className="relative p-8 md:p-10">
-          <div
-            className="absolute -right-16 -top-16 h-52 w-52 rounded-full opacity-25 blur-3xl"
-            style={{ background: project.accentColor }}
-          />
-
-          <div className="relative">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-gold">
+      <aside
+        className="my-10 overflow-hidden rounded-xl border border-border bg-card"
+        style={{ borderTopColor: project.accentColor, borderTopWidth: 3 }}
+      >
+        <div className="p-5 sm:p-6">
+          <div>
+            <div className="flex items-center gap-2 text-sm font-medium text-gold">
               <Ticket className="h-4 w-4" />
               Билеты на {project.name}
             </div>
 
-            <h3 className="mt-4 text-3xl font-bold font-display md:text-4xl">
+            <h3 className="mt-3 text-2xl font-medium">
               {project.name}
             </h3>
 
@@ -59,7 +57,7 @@ export function ProjectCta({ project, articleSlug, variant = "default" }: Props)
                 href={ticketHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-medium text-ink transition-all hover:bg-gold-hover hover:shadow-[0_0_30px_-5px_var(--gold)]"
+                className="group inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-medium text-white hover:bg-gold-hover"
               >
                 <Ticket className="h-4 w-4" />
                 Купить билеты
@@ -85,17 +83,12 @@ export function ProjectCta({ project, articleSlug, variant = "default" }: Props)
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative my-12 block overflow-hidden rounded-2xl border border-border bg-card p-8 transition-colors hover:border-gold/40"
+      className="my-10 block rounded-xl border border-border bg-card p-5"
+      style={{ borderTopColor: project.accentColor, borderTopWidth: 3 }}
     >
-      <div
-        className="absolute -right-12 -top-12 h-48 w-48 rounded-full opacity-20 blur-3xl transition-opacity group-hover:opacity-40"
-        style={{ background: project.accentColor }}
-      />
-      <div className="relative">
-        <div className="text-xs uppercase tracking-widest text-muted-foreground">
-          Проект
-        </div>
-        <h3 className="mt-2 text-2xl font-bold">{project.name}</h3>
+      <div>
+        <div className="text-sm text-muted-foreground">Проект</div>
+        <h3 className="mt-1 text-xl font-medium">{project.name}</h3>
         {project.description && (
           <p className="mt-3 max-w-xl text-sm text-muted-foreground">
             {project.description}

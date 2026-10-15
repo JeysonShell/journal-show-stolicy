@@ -31,7 +31,7 @@ export default async function AdminDashboard() {
             <div className="text-xs uppercase tracking-widest text-muted-foreground">
               {s.label}
             </div>
-            <div className="mt-3 text-4xl font-bold font-display">
+            <div className="mt-3 text-4xl font-medium">
               {s.value}
             </div>
           </div>

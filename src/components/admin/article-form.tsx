@@ -201,7 +201,7 @@ export function ArticleForm({
           <div className="flex flex-col gap-2">
             <button
               type="submit"
-              className="w-full rounded-lg bg-gold px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-gold-hover"
+              className="w-full rounded-lg bg-gold px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gold-hover"
             >
               {submitLabel}
             </button>

@@ -26,7 +26,7 @@ export default async function LoginPage({
 
   return (
     <div className="mx-auto flex min-h-[80vh] max-w-md flex-col justify-center px-6">
-      <Link href="/" className="mb-10 text-2xl font-bold font-display">
+      <Link href="/" className="mb-10 text-2xl font-medium">
         Журнал <span className="text-gold">Столицы</span>
       </Link>
 
@@ -75,7 +75,7 @@ export default async function LoginPage({
 
           <button
             type="submit"
-            className="w-full rounded-lg bg-gold px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-gold-hover"
+            className="w-full rounded-lg bg-gold px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gold-hover"
           >
             Войти
           </button>

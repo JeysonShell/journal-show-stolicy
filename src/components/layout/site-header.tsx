@@ -2,69 +2,48 @@
 
 import Link from "next/link";
 import { Search } from "lucide-react";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { siteNav } from "@/lib/site-nav";
 import { ThemeToggle } from "./theme-toggle";
-
-const nav = [
-  { href: "/", label: "Главная" },
-  { href: "/category/afisha", label: "Афиша" },
-  { href: "/category/intervyu", label: "Интервью" },
-  { href: "/category/za-kulisami", label: "За кулисами" },
-  { href: "/category/gaidy", label: "Гайды" },
-];
+import { MobileMenu } from "./mobile-menu";
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const pathname = usePathname();
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full border-b backdrop-blur-xl transition-all duration-500 ${
-        scrolled
-          ? "h-12 border-border/60 bg-background/90"
-          : "h-16 border-transparent bg-background/60"
-      }`}
-    >
-      <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-2">
-          <span
-            className={`font-display font-bold tracking-tight transition-all duration-500 ${
-              scrolled ? "text-base" : "text-xl"
-            }`}
-          >
-            Журнал <span className="text-gold">Столицы</span>
-          </span>
+    <header className="sticky top-0 z-50 h-16 border-b border-border bg-card">
+      <div className="mx-auto flex h-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+        <Link href="/" className="shrink-0 text-[15px] font-medium tracking-tight">
+          Журнал <span className="text-gold">Столицы</span>
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-sm font-medium text-muted-foreground transition-all duration-300 hover:text-gold ${
-                scrolled ? "opacity-80" : "opacity-100"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-1 md:flex">
+          {siteNav.map((item) => {
+            const active = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`rounded-full px-4 py-1.5 text-sm font-medium text-gold ${
+                  active ? "bg-black/[0.04] dark:bg-white/10" : "hover:bg-black/[0.04] dark:hover:bg-white/10"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-1">
           <Link
             href="/search"
-            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            className="rounded-full p-2 text-gold hover:bg-black/[0.04] dark:hover:bg-white/10"
             aria-label="Поиск"
           >
             <Search className="h-5 w-5" />
           </Link>
           <ThemeToggle />
+          <MobileMenu />
         </div>
       </div>
     </header>

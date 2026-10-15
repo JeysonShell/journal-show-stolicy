@@ -36,7 +36,7 @@ export function TiptapEditor({ value, onChange }: Props) {
     editorProps: {
       attributes: {
         class:
-          "prose prose-invert max-w-none min-h-[400px] rounded-b-lg border border-t-0 border-border bg-background p-6 outline-none focus:outline-none",
+          "prose max-w-none min-h-[400px] rounded-b-lg border border-t-0 border-border bg-background p-6 outline-none focus:outline-none",
       },
     },
     onUpdate: ({ editor }) => {

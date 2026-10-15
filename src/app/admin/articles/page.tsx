@@ -25,14 +25,14 @@ export default async function ArticlesListPage() {
         </div>
         <Link
           href="/admin/articles/new"
-          className="rounded-lg bg-gold px-4 py-2.5 text-sm font-medium text-ink hover:bg-gold-hover"
+          className="rounded-lg bg-gold px-4 py-2.5 text-sm font-medium text-white hover:bg-gold-hover"
         >
           + Новая статья
         </Link>
       </div>
 
-      <div className="mt-10 overflow-hidden rounded-2xl border border-border">
-        <table className="w-full text-sm">
+      <div className="mt-10 overflow-x-auto rounded-2xl border border-border">
+        <table className="w-full min-w-[720px] text-sm">
           <thead className="bg-muted/50 text-left text-xs uppercase tracking-widest text-muted-foreground">
             <tr>
               <th className="px-4 py-3">Заголовок</th>

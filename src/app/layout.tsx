@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { Curtain } from "@/components/effects/curtain";
 import "./globals.css";
 
 const inter = Inter({
@@ -12,12 +11,14 @@ const inter = Inter({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-playfair",
-  display: "swap",
-  weight: ["400", "700", "800", "900"],
-});
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#1A1816" },
+    { media: "(prefers-color-scheme: light)", color: "#E6E1DA" },
+  ],
+};
 
 export const metadata: Metadata = {
   title: {
@@ -38,14 +39,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+      <body className={`${inter.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
-          <Curtain />
           <SiteHeader />
           <main className="min-h-[60vh]">{children}</main>
           <SiteFooter />

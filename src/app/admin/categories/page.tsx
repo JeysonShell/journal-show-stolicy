@@ -25,7 +25,7 @@ export default async function CategoriesPage() {
         </div>
         <Link
           href="/admin/categories/new"
-          className="rounded-lg bg-gold px-4 py-2.5 text-sm font-medium text-ink hover:bg-gold-hover"
+          className="rounded-lg bg-gold px-4 py-2.5 text-sm font-medium text-white hover:bg-gold-hover"
         >
           + Новая рубрика
         </Link>

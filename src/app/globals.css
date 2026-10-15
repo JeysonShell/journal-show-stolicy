@@ -3,51 +3,54 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --radius: 0.625rem;
-  --gold: #D4AF37;
-  --gold-hover: #b8962f;
-  --ink: #0A0A0A;
+  --background: #e6e1da;
+  --foreground: rgba(0, 0, 0, 0.87);
+  --card: #f7f5f2;
+  --card-foreground: rgba(0, 0, 0, 0.87);
+  --popover: #f7f5f2;
+  --popover-foreground: rgba(0, 0, 0, 0.87);
+  --primary: #ad382e;
+  --primary-foreground: #ffffff;
+  --secondary: #efebe6;
+  --secondary-foreground: rgba(0, 0, 0, 0.87);
+  --muted: #efebe6;
+  --muted-foreground: #6f6862;
+  --accent: #efebe6;
+  --accent-foreground: rgba(0, 0, 0, 0.87);
+  --destructive: #ad382e;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.12);
+  --input: rgba(0, 0, 0, 0.12);
+  --ring: #ad382e;
+  --radius: 0.75rem;
+  --gold: #ad382e;
+  --gold-hover: #8f2e26;
+  --ink: #161616;
 }
 
 .dark {
-  --background: oklch(0.04 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.08 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.08 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.08 0 0);
-  --secondary: oklch(0.13 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.13 0 0);
-  --muted-foreground: oklch(0.7 0 0);
-  --accent: oklch(0.13 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.18 0 0);
-  --input: oklch(0.18 0 0);
-  --ring: oklch(0.4 0 0);
+  --background: #1a1816;
+  --foreground: #f3efea;
+  --card: #24211e;
+  --card-foreground: #f3efea;
+  --popover: #24211e;
+  --popover-foreground: #f3efea;
+  --primary: #e07a70;
+  --primary-foreground: #1a1816;
+  --secondary: #2c2926;
+  --secondary-foreground: #f3efea;
+  --muted: #2c2926;
+  --muted-foreground: #a39c94;
+  --accent: #2c2926;
+  --accent-foreground: #f3efea;
+  --destructive: #e07a70;
+  --destructive-foreground: #1a1816;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #e07a70;
+  --gold: #e07a70;
+  --gold-hover: #f0a097;
+  --ink: #f3efea;
 }
 
 @theme inline {
@@ -73,7 +76,6 @@
   --color-gold: var(--gold);
   --color-gold-hover: var(--gold-hover);
   --color-ink: var(--ink);
-  --font-display: var(--font-playfair);
   --font-sans: var(--font-inter);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -90,28 +92,14 @@
     font-feature-settings: "ss01", "cv11";
   }
   h1, h2, h3 {
-    font-family: var(--font-display), serif;
-    font-weight: 700;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-weight: 500;
     letter-spacing: -0.02em;
   }
   ::selection {
     background: var(--gold);
-    color: var(--ink);
+    color: #fff;
   }
 }
 
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-up { animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .text-balance { text-wrap: balance; }
-
-@keyframes curtain {
-  from { transform: scaleY(1); }
-  to { transform: scaleY(0); }
-}
-.animate-curtain {
-  transform-origin: top;
-  animation: curtain 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-}

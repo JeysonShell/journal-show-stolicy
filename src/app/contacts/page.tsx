@@ -2,11 +2,10 @@ export const metadata = { title: "Контакты" };
 
 export default function ContactsPage() {
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16">
-      <div className="text-xs uppercase tracking-widest text-gold">Контакты</div>
-      <h1 className="mt-4 text-5xl font-bold">Связаться с редакцией</h1>
+    <article className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
+      <h1 className="text-3xl font-medium">Связаться с редакцией</h1>
 
-      <div className="mt-10 space-y-4 text-lg">
+      <div className="mt-6 space-y-4">
         <div>
           <div className="text-sm text-muted-foreground">Email редакции</div>
           <a href="mailto:editor@show-stolicy.ru" className="text-gold hover:underline">
